@@ -39,6 +39,14 @@
 
 ---
 
+<p align="center">
+  <a href="waiver_status_infographic.png">
+    <img src="waiver_status_infographic.png" alt="美研 CS/工科 英语语言豁免 (MOI) 红绿灯速览" width="100%" />
+  </a>
+</p>
+
+---
+
 ## 📌 项目背景与开源初衷
 
 在英美名校研究生申请中，针对本科在英联邦双语国家公立大学（如**马来西亚国立大学 Universiti Kebangsaan Malaysia, UKM**）完成**四年全英文授课计算机 / 软件工程专业**的毕业生，各校对 **英语授课证明（Medium of Instruction, MOI Letter）** 能否替代 TOEFL / IELTS / Duolingo (DET) 标化考试的要求差异极大：
