@@ -25,10 +25,10 @@
 ---
 
 <div align="center">
-  <a href="assets/waiver_status_infographic_v2.png">
-    <img src="assets/waiver_status_infographic_v2.png" alt="美研 CS/工科 英语语言豁免 (MOI) 决策总览" width="100%" />
+  <a href="assets/waiver_overview.png">
+    <img src="assets/waiver_overview.png" alt="UKM 全英本科 · 美研语言豁免速查" width="540" />
   </a>
-  <p><em>👆 点击查看超清大图（支持长按保存与分享）· <a href="assets/waiver_status_infographic_v2.pdf">下载打印版 PDF</a> · <a href="infographic_editorial.html">查看网页排版源码</a></em></p>
+  <p><em>👆 点击查看高清长图（适合手机保存与分享）· <a href="assets/waiver_overview.pdf">下载 PDF</a></em></p>
 </div>
 
 ---
@@ -45,14 +45,6 @@
 - [官方咨询邮件模板](#-官方咨询邮件模板-email-inquiry-template)
 - [贡献与共建指南](#-贡献与共建指南-contributing)
 - [免责声明](#️-免责声明-disclaimer)
-
----
-
-<p align="center">
-  <a href="waiver_status_infographic.png">
-    <img src="waiver_status_infographic.png" alt="美研 CS/工科 英语语言豁免 (MOI) 红绿灯速览" width="100%" />
-  </a>
-</p>
 
 ---
 
@@ -88,6 +80,10 @@ ftsm-english-waiver-list/
 ├── README.md                  # 总览：结论速览、全量总表、DET 策略、邮件模板
 ├── CONTRIBUTING.md            # 贡献指南与脱敏规范
 ├── LICENSE                    # CC BY 4.0
+├── assets/
+│   ├── waiver_overview.png    # 速查长图（PNG / PDF）
+│   ├── waiver_overview.pdf
+│   └── infographic/           # 长图源文件：改 overview.html 后运行 render.cjs 重新生成
 ├── data/
 │   ├── README.md              # 字段说明（数据字典）
 │   ├── waiver_list.csv        # 全地区总表（以 region 列区分，目前仅含 US）

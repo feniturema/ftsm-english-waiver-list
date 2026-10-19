@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>美研语言豁免速查</title>
+<style>
+  :root {
+    --ink: #1a1a19;
+    --ink-2: #4a4945;
+    --muted: #7a786f;
+    --line: #e6e3da;
+    --surface: #f6f4ee;
+    --card: #ffffff;
+    --good: #0ca30c;
+    --good-bg: #e9f6e6;
+    --warn: #e09a00;
+    --warn-bg: #fdf3dc;
+    --crit: #d03b3b;
+    --crit-bg: #fbe8e6;
+    --accent: #1f4fd1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: "Noto Sans SC Variable", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.45;
+  }
+  .page { padding: 64px 56px 48px; }
+
+  /* Header */
+  .kicker { font-size: 22px; font-weight: 700; color: var(--accent); letter-spacing: .04em; }
+  h1 { font-size: 64px; font-weight: 900; line-height: 1.15; margin: 14px 0 16px; letter-spacing: -.01em; }
+  .lede { font-size: 24px; color: var(--ink-2); }
+  .lede b { color: var(--ink); }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 40px 0 18px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px 26px 24px; position: relative; overflow: hidden; }
+  .stat::before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 8px; background: var(--c); }
+  .stat .top { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 700; }
+  .stat .num { font-size: 88px; font-weight: 800; line-height: 1; margin: 18px 0 8px; }
+  .stat .num small { font-size: 26px; font-weight: 600; color: var(--muted); margin-left: 6px; }
+  .stat .desc { font-size: 20px; color: var(--ink-2); }
+
+  .icon { width: 36px; height: 36px; border-radius: 50%; background: var(--c); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .icon svg { width: 22px; height: 22px; stroke: #fff; stroke-width: 3.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 19px; color: var(--muted); margin-bottom: 8px; }
+  .legend b { display: inline-block; min-width: 30px; text-align: center; border: 1.5px solid #cfccc2; border-radius: 8px; color: var(--ink-2); font-size: 17px; padding: 0 6px; margin-right: 6px; }
+
+  /* Sections */
+  section { margin-top: 40px; }
+  .sec-head { display: flex; align-items: center; gap: 16px; padding: 18px 24px; border-radius: 18px; background: var(--bg); margin-bottom: 18px; }
+  .sec-head .icon { width: 46px; height: 46px; }
+  .sec-head .icon svg { width: 28px; height: 28px; }
+  .sec-head h2 { font-size: 34px; font-weight: 800; }
+  .sec-head p { font-size: 20px; color: var(--ink-2); margin-top: 2px; }
+  .sec-head .count { margin-left: auto; font-size: 22px; font-weight: 700; color: var(--ink-2); white-space: nowrap; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-left: 8px solid var(--c); border-radius: 16px; padding: 18px 20px 16px; }
+  .card .hd, .card .sub { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .card .name { white-space: nowrap; }
+  .card .sub { margin-top: 6px; min-height: 30px; }
+  .card .name { font-size: 29px; font-weight: 800; line-height: 1.2; }
+  .card .unit { font-size: 18px; color: var(--muted); }
+  .card .why { font-size: 21px; color: var(--ink); margin-top: 8px; }
+  .chips { display: flex; justify-content: flex-end; gap: 6px; flex: none; }
+  .chip { font-size: 17px; font-weight: 600; padding: 3px 12px; border-radius: 999px; background: #f0eee8; color: var(--ink-2); white-space: nowrap; }
+  .chip.lvl { background: transparent; border: 1.5px solid #cfccc2; }
+  .chip.det { background: #e8eefc; color: #1d3f9e; }
+  .chip.nodet { background: transparent; color: var(--muted); border: 1.5px dashed #cfccc2; }
+
+  /* Strategy */
+  .plans { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .plan { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px 26px; display: grid; grid-template-columns: 200px 1fr; gap: 22px; align-items: start; }
+  .plan .tag { font-size: 20px; font-weight: 700; color: var(--muted); }
+  .plan .exam { font-size: 40px; font-weight: 900; line-height: 1.1; margin-top: 4px; }
+  .plan .exam small { display: block; font-size: 18px; font-weight: 600; color: var(--muted); margin-top: 6px; }
+  .plan .row { font-size: 21px; margin-bottom: 8px; }
+  .plan .row:last-child { margin-bottom: 0; }
+  .plan .row span { display: inline-block; font-weight: 700; margin-right: 8px; }
+  .plan .row.ok span { color: #087a08; }
+  .plan .row.no span { color: #b02e2e; }
+  .tip { margin-top: 16px; background: var(--ink); color: #fff; border-radius: 18px; padding: 24px 28px; font-size: 22px; line-height: 1.55; }
+  .tip b { color: #ffd772; }
+
+  /* Footer */
+  footer { margin-top: 48px; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px; display: flex; gap: 28px; align-items: center; }
+  footer img { width: 150px; height: 150px; flex: none; }
+  footer .t1 { font-size: 28px; font-weight: 800; }
+  footer .t2 { font-size: 21px; color: var(--accent); font-weight: 600; margin: 6px 0 10px; word-break: break-all; }
+  footer .t3 { font-size: 19px; color: var(--ink-2); }
+  .fine { font-size: 17px; color: var(--muted); text-align: center; margin-top: 22px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="kicker">FALL 2027 · 美研 CS / ECE 硕士 · 持续更新</div>
+    <h1>UKM 全英本科<br>美研语言豁免速查</h1>
+    <p class="lede">四年全英授课的 <b>MOI 证明信</b>，能不能免掉托福 / 雅思 / DET？<br>整理自各校官网、网申实测与招生办回信，共 <b>28 所</b>学校。</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--good)">
+        <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>可豁免</div>
+        <div class="num">7<small>所</small></div>
+        <div class="desc">交 MOI 信或网申勾选即可</div>
+      </div>
+      <div class="stat" style="--c: var(--warn)">
+        <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M12 7v6M12 17.5v.01"/></svg></span>看审核</div>
+        <div class="num">8<small>所</small></div>
+        <div class="desc">可申请，由委员会裁定</div>
+      </div>
+      <div class="stat" style="--c: var(--crit)">
+        <div class="top"><span class="icon"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span>需交分</div>
+        <div class="num">13<small>所</small></div>
+        <div class="desc">国家白名单 / WHED 卡死</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><b>A</b>招生办书面回复</span>
+      <span><b>B</b>网申系统实测</span>
+      <span><b>C</b>官网当季政策</span>
+    </div>
+  </header>
+
+  <section id="good"></section>
+  <section id="warn"></section>
+  <section id="crit"></section>
+
+  <section>
+    <div class="sec-head" style="--bg: #e8eefc">
+      <div>
+        <h2>被拒免了，考哪个？</h2>
+        <p>一次考试覆盖尽量多的学校</p>
+      </div>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <div><div class="tag">方案 A · 首选</div><div class="exam">DET 135<small>在家考 · 48 小时出分</small></div></div>
+        <div>
+          <div class="row ok"><span>✓ 够用</span>NYU · Duke · Columbia SEAS / GSAS · UIUC · UCSD · Vanderbilt · Rice · WashU · BU · Emory · Notre Dame</div>
+          <div class="row no"><span>✕ 不收</span>Harvard · Berkeley · Cornell Ithaca · UCLA · USC · UMich · Columbia SPS</div>
+        </div>
+      </div>
+      <div class="plan">
+        <div><div class="tag">方案 B</div><div class="exam">IELTS 7.0<small>口语 / 写作 ≥ 6.5</small></div></div>
+        <div>
+          <div class="row ok"><span>✓ 够用</span>Harvard · Berkeley · Cornell Ithaca（只看总分）· WashU · Duke · JHU · NYU</div>
+          <div class="row no"><span>✕ 不够</span>Columbia GSAS、UIUC Full status 要 7.5</div>
+        </div>
+      </div>
+      <div class="plan">
+        <div><div class="tag">方案 C</div><div class="exam">TOEFL 5.0<small>新制 · 口语 / 写作 ≥ 4.5</small></div></div>
+        <div>
+          <div class="row ok"><span>✓ 够用</span>Harvard · Berkeley · WashU · JHU</div>
+          <div class="row no"><span>✕ 不够</span>Cornell Ithaca CS 口语要 5.5 · Columbia GSAS 要 5.5</div>
+        </div>
+      </div>
+    </div>
+    <div class="tip">💡 选校里<b>没有</b> Harvard / Berkeley / Cornell Ithaca / UCLA / USC / UMich：直接考 <b>DET 125–135</b>，成本最低。<br>💡 <b>必申 Cornell Ithaca</b>：考雅思 7.0，避开托福口语 5.5 的硬线。</div>
+  </section>
+
+  <footer>
+    <img src="qr.svg" alt="仓库二维码">
+    <div>
+      <div class="t1">⭐ 完整数据、回信原文与邮件模板</div>
+      <div class="t2">github.com/feniturema/ftsm-english-waiver-list</div>
+      <div class="t3">英国 🇬🇧、新加坡 🇸🇬 即将更新 · 欢迎在 Issue 分享你和招生办的沟通结果</div>
+    </div>
+  </footer>
+  <p class="fine">更新于 2026-10-18 · 各校政策可能随申请季变化，提交前请以官网与网申系统为准 · CC BY 4.0</p>
+
+</div>
+
+<script>
+// 每所学校一行：[学校, 学院 · 项目, 一句话结论, 证据等级, 考分标签（null = 不需要显示）, 是否收 DET]
+const DATA = {
+  good: {
+    title: "可豁免", sub: "交 MOI 证明信或网申勾选即可，不用考语言", c: "var(--good)", bg: "var(--good-bg)",
+    icon: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    rows: [
+      ["UPenn", "SEAS · MSE CIS / DSAI / SE 等", "招生办邮件确认 MOI 信足够，随成绩单一起上传", "A", "免考", true],
+      ["Cornell Tech", "MEng CS", "招生办邮件确认 MOI 信可作豁免，随网申提交", "A", "免考", true],
+      ["Brown", "ScM CS / ECE", "网申选原校并注明英语为主要授课语言，自动免除", "A", "免考", true],
+      ["Stanford", "MS CS / EE", "近 10 年有 2 年以上全日制英语教育即可免交", "C", "免考", true],
+      ["Johns Hopkins", "WSE · MSE CS / MSSI / ECE", "工学院认全英学位，网申选 MOI 通道，还免申请费", "B/C", "免考", true],
+      ["Emory", "Laney · MS CS", "英语授课院校毕业可直接豁免", "C", "免考", true],
+      ["Notre Dame", "MS CSE / ECE", "认可本科院校出具的 MOI 证明信", "C", "免考", true],
+    ],
+  },
+  warn: {
+    title: "看审核", sub: "可以提交 MOI 申请，结果由招生委员会裁定", c: "var(--warn)", bg: "var(--warn-bg)",
+    icon: '<path d="M12 7v6M12 17.5v.01"/>',
+    rows: [
+      ["UChicago", "MPCS · MS CS", "成绩自报选填，Checklist 无语言缺件项", "B", null, false],
+      ["Boston Univ", "MET · MS CS", "MOI 已上传并显示收到，但审理时保留要分权", "B", "DET 125", true],
+      ["WashU", "McKelvey · MS CS / ECE", "须交完整申请后由委员会裁定，不接受预审", "A", "DET 125", true],
+      ["Georgia Tech", "MSCS / MS ECE", "新页面接受学位 MOI，但 FAQ 仍写 sole", "C", null, false],
+      ["Yale", "MS ECE / CS", "以英语为主要授课语言且读满 3 年可免", "B/C", null, false],
+      ["Northwestern", "McCormick · MS CS / ECE", "网申内可申请豁免，随录取一起审核", "C", null, false],
+      ["Dartmouth", "Guarini · MS CS", "要求 sole / primary 英语院校，可网申申请", "C", null, false],
+      ["UNC Chapel Hill", "MS CS", "要求整校 sole 英语授课，建议直接交分", "C", null, false],
+    ],
+  },
+  crit: {
+    title: "需交分", sub: "国家白名单、WHED 数据库或明确拒免，必须考语言", c: "var(--crit)", bg: "var(--crit-bg)",
+    icon: '<path d="M7 7l10 10M17 7L7 17"/>',
+    rows: [
+      ["NYU Tandon", "MS CS", "网申豁免申请已被正式拒绝", "A", "DET 130", true],
+      ["Duke", "Pratt MEng ECE / MS ECE", "要求所在国以英语为主，招生办推荐考 DET", "A", "DET 125", true],
+      ["Columbia", "SEAS / GSAS / SPS", "国家白名单，网申明确写明东南亚须交分", "B/C", "DET 130–135", true],
+      ["UIUC", "Grainger · MCS", "30 国白名单，不含马来西亚", "B/C", "DET 135", true],
+      ["UC Berkeley", "MEng EECS", "国家表明确标注马来西亚须交 TOEFL / IELTS", "B/C", "托福 5.0", false],
+      ["UC San Diego", "Jacobs · MS CS / ECE", "只认 WHED，UKM 登记为马来语 + 英语", "A/C", "DET 120", true],
+      ["UCLA", "Samueli · MS CS / ECE", "WHED 须仅列英语，双语大学不满足", "C", "托福 4.5", false],
+      ["USC", "Viterbi · MS CS", "非英语国家的英语授课项目不豁免", "C", "托福 4.5", false],
+      ["UMich", "CoE · MS CSE / ECE", "要求整校 exclusive 英语授课", "C", "托福 84", false],
+      ["Cornell Ithaca", "MEng CS / ECE", "须交分；CS 托福口语 ≥ 5.5，建议考雅思", "C", "雅思 7.0", false],
+      ["Harvard", "SEAS / GSAS", "只认机构 primary 语言为英语", "C", "托福 5.0", false],
+      ["Vanderbilt", "MS CS / MEng", "不受理双语大学的豁免申请", "C", "DET 130", true],
+      ["Rice", "MCS / ECE", "要求大学官方语言为英语", "C", "DET 115", true],
+    ],
+  },
+};
+
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+for (const [id, g] of Object.entries(DATA)) {
+  const cards = g.rows.map(([name, unit, why, lvl, score, det]) => {
+    const chips = [];
+    if (score && score.startsWith("DET")) chips.push(`<span class="chip det">${score}</span>`);
+    else if (score && score !== "免考") chips.push(`<span class="chip">${score}</span>`);
+    if (!det) chips.push(`<span class="chip nodet">不收 DET</span>`);
+    return `<div class="card" style="--c:${g.c}">
+      <div class="hd"><div class="name">${esc(name)}</div><span class="chip lvl">${lvl}</span></div>
+      <div class="sub"><div class="unit">${esc(unit)}</div><div class="chips">${chips.join("")}</div></div>
+      <div class="why">${esc(why)}</div></div>`;
+  }).join("");
+  document.getElementById(id).innerHTML = `
+    <div class="sec-head" style="--bg:${g.bg}; --c:${g.c}">
+      <span class="icon"><svg viewBox="0 0 24 24">${g.icon}</svg></span>
+      <div><h2>${g.title}</h2><p>${g.sub}</p></div>
+      <div class="count">${g.rows.length} 所</div>
+    </div>
+    <div class="grid">${cards}</div>`;
+}
+</script>
+</body>
+</html>
