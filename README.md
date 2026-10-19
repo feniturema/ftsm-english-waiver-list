@@ -24,6 +24,15 @@
 
 ---
 
+<div align="center">
+  <a href="assets/waiver_status_infographic_v2.png">
+    <img src="assets/waiver_status_infographic_v2.png" alt="美研 CS/工科 英语语言豁免 (MOI) 决策总览" width="100%" />
+  </a>
+  <p><em>👆 点击查看超清大图（支持长按保存与分享）· <a href="assets/waiver_status_infographic_v2.pdf">下载打印版 PDF</a> · <a href="infographic_editorial.html">查看网页排版源码</a></em></p>
+</div>
+
+---
+
 ## 📑 目录
 
 - [项目背景与开源初衷](#-项目背景与开源初衷)
