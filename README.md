@@ -17,7 +17,21 @@
 3. **有的学校明确设立国家语言白名单**：如哥伦比亚大学工学院（Columbia SEAS）、杜克大学工学院（Duke Pratt）、伊利诺伊大学香槟分校（UIUC）、加州大学伯克利分校（UC Berkeley），即使项目 100% 全英授课，也会因非原生英语国而**正式拒绝豁免**；
 4. **拒免后的高效备考替代路径（DET 优势）**：若不幸被拒免，部分学校（如 WashU、Columbia GSAS、Duke、Notre Dame）**极力推荐或接受 Duolingo (DET)**，相比托福 100+ / 5.0 或雅思 7.5，考取 DET 125~135 的备考周期和通过率高出数倍！
 
-本项目由马来西亚公立大学（UKM FTSM）2027 Fall 计算机申请者发起，**基于 25 所美国顶尖工学院/计算机系 100% 官方页面原文、网申系统内部表单实测、以及 35 封发往美国招生办的一手邮件实测回复**深度整理，全部数据去除了所有个人敏感隐私，完全开源，供所有海外全英文教学背景的同学参考与共建！
+本项目由马来西亚公立大学（UKM FTSM）2027 Fall 计算机申请者发起，**基于 28 所美国顶尖工学院/计算机系 100% 官方页面原文、网申系统内部表单实测、以及 35 封发往美国招生办的一手邮件实测回复**深度整理，全部数据去除了所有个人敏感隐私，完全开源，供所有海外全英文教学背景的同学参考与共建！
+
+---
+
+## 🗺️ 版本说明与更新计划 (Roadmap)
+
+> 📢 **当前为第一版（美国篇），本仓库会持续更新。**
+
+- **美国篇（持续补充）**：截至 2026-10-18 仍有 20 余所院校的咨询邮件尚未收到实质答复（见 [`replies.md`](replies.md)），收到回复或网申状态变化后会陆续补录，并随 Fall 2027 申请季推进更新实际录取结果；
+- **英国篇（UK，计划中）**：之后会加入英国院校研究生的 MOI 豁免政策与语言要求；
+- **新加坡篇（Singapore，计划中）**：之后会加入新加坡院校研究生的 MOI 豁免政策与语言要求。
+
+**数据文件说明**：[`data/waiver_list.csv`](data/waiver_list.csv) 为全地区总表（以 `region` 列区分地区，目前仅含 `US`）；[`data/waiver_list_us.csv`](data/waiver_list_us.csv) 为美国分表。英国、新加坡数据上线后会写入总表，并新增对应的分表。
+
+欢迎 Star / Watch 本仓库以获取更新通知。
 
 ---
 
@@ -25,13 +39,13 @@
 
 | 豁免分类 | 对应美国名校（CS / ECE / 工学硕士） | 核心应对策略 |
 |:---:|---|---|
-| 🟢 **已获确认 / 政策明确可豁免** (8 校) | **UPenn** (SEAS), **Cornell Tech**, **Brown** (CS/ECE), **Stanford**, **Johns Hopkins** (WSE), **Emory**, **Notre Dame** | 网申直接上传官方 MOI 证明或系统勾选，**无需提交任何托福/雅思/DET 成绩**。 |
+| 🟢 **已获确认 / 政策明确可豁免** (7 校) | **UPenn** (SEAS), **Cornell Tech**, **Brown** (CS/ECE), **Stanford**, **Johns Hopkins** (WSE), **Emory**, **Notre Dame** | 网申直接上传官方 MOI 证明或系统勾选，**无需提交任何托福/雅思/DET 成绩**。 |
 | 🟡 **审核制 / 自报系统 / 政策放宽中** (8 校) | **UChicago** (MPCS), **Boston Univ** (MET), **WashU**, **Georgia Tech**, **Yale**, **Northwestern**, **Dartmouth**, **UNC** | 网申提供 MOI 证明并提申请，由审核委员会在审理时判定；或系统免卡语言缺件（如 UChicago）。 |
-| 🔴 **明确拒免 / 严卡国家或WHED** (12 校) | **NYU** (Tandon), **Duke** (Pratt), **Columbia** (SEAS/GSAS/SPS), **UIUC**, **UC Berkeley**, **UCSD**, **UCLA**, **USC**, **UMich**, **Cornell** (Ithaca), **Harvard**, **Vanderbilt** | 无法豁免。**优先选考 DET（如 WashU DET 125、Columbia GSAS DET 135、Duke DET 125）**；若申 Berkeley / Harvard / Cornell Ithaca 则必须备战托福 5.0+ 或雅思 7.0+。 |
+| 🔴 **明确拒免 / 严卡国家或WHED** (13 校) | **NYU** (Tandon), **Duke** (Pratt), **Columbia** (SEAS/GSAS/SPS), **UIUC**, **UC Berkeley**, **UCSD**, **UCLA**, **USC**, **UMich**, **Cornell** (Ithaca), **Harvard**, **Vanderbilt**, **Rice** | 无法豁免。**优先选考 DET（如 WashU DET 125、Columbia GSAS DET 135、Duke DET 125）**；若申 Berkeley / Harvard / Cornell Ithaca 则必须备战托福 5.0+ 或雅思 7.0+。 |
 
 ---
 
-## 📊 25 所美国名校研究生语言豁免全量核验总表
+## 📊 28 所美国名校研究生语言豁免全量核验总表
 
 > **数据源级别说明**：
 > - **Level A (招生办官方书面确认)**：招生负责人或 admissions 官方邮箱就 MOI 证明给予正式回复，附往来时间与原文。

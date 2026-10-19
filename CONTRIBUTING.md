@@ -24,7 +24,7 @@
 
 ### 途径一：提交 Issue（最简便）
 
-如果你收到了某所学校招生办的邮件回复，或者在网申系统中发现了新的政策，可以直接在 GitHub 提交一个 [Issue](https://github.com/)。
+如果你收到了某所学校招生办的邮件回复，或者在网申系统中发现了新的政策，可以直接在 GitHub 提交一个 [Issue](../../issues)。
 
 **请在 Issue 中提供以下信息**：
 ```markdown
@@ -55,7 +55,7 @@
 2. 新建分支：`git checkout -b update/add-university-name`。
 3. **同步修改以下文件**：
    - **[`README.md`](README.md)**：将你的实测学校与项目加入表格中；
-   - **[`data/waiver_list_us.csv`](data/waiver_list_us.csv)**：在末尾追加对应的 CSV 记录行（字段：`region,school,unit,programs,status,source_level,as_of,note`）；
+   - **[`data/waiver_list.csv`](data/waiver_list.csv)**（全地区总表）及对应地区分表（如 [`data/waiver_list_us.csv`](data/waiver_list_us.csv)）：在末尾追加对应的 CSV 记录行（字段：`region,school,unit,programs,status,det_accepted,det_min,toefl_min,waiver_source,verified_date,action_notes`）；
    - **[`replies.md`](replies.md)**（若有官方回复）：按“同意豁免 / 拒绝豁免 / 随审理裁定”分类，摘录英文原话。
 4. 本地检查隐私信息无误后，提交 Commit：
    ```bash
