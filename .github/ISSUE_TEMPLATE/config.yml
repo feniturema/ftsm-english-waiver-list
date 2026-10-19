@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 贡献指南与脱敏规范 (Contributing Guide)
+    url: https://github.com/feniturema/ftsm-english-waiver-list/blob/main/CONTRIBUTING.md
+    about: 提交前请先阅读，务必隐去个人姓名、邮箱和申请号。

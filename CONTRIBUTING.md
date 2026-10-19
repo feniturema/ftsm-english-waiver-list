@@ -56,7 +56,7 @@
 3. **同步修改以下文件**：
    - **[`README.md`](README.md)**：将你的实测学校与项目加入表格中；
    - **[`data/waiver_list.csv`](data/waiver_list.csv)**（全地区总表）及对应地区分表（如 [`data/waiver_list_us.csv`](data/waiver_list_us.csv)）：在末尾追加对应的 CSV 记录行（字段：`region,school,unit,programs,status,det_accepted,det_min,toefl_min,waiver_source,verified_date,action_notes`）；
-   - **[`replies.md`](replies.md)**（若有官方回复）：按“同意豁免 / 拒绝豁免 / 随审理裁定”分类，摘录英文原话。
+   - **[`docs/replies_us.md`](docs/replies_us.md)**（若有官方回复，其他地区对应 `docs/replies_<地区>.md`）：按“同意豁免 / 拒绝豁免 / 随审理裁定”分类，摘录英文原话。
 4. 本地检查隐私信息无误后，提交 Commit：
    ```bash
    git commit -m "docs: add [School Name] [Program Name] waiver outcome"

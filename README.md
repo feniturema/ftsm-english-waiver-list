@@ -1,10 +1,41 @@
-# FTSM English Language Proficiency Waiver & Admission Requirements Database (US Edition)
-# 全英授课本科（马来西亚公立大学 UKM FTSM 等）申请美国研究生英语语言豁免 (MOI) 与标化要求全量核验总库
+<div align="center">
+
+# 🎓 FTSM English Waiver List
+
+**全英授课本科（马来西亚公立大学 UKM FTSM 等）申请海外研究生**<br>
+**英语语言豁免 (MOI) 与标化要求全量核验总库**
+
+*FTSM English Language Proficiency Waiver & Admission Requirements Database*
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Scope: US Engineering & CS](https://img.shields.io/badge/Scope-US%20CS%20%26%20Engineering%20Master-blue.svg)](data/waiver_list_us.csv)
-[![Verified: 2026-10-19](https://img.shields.io/badge/Verified-Fall%202027-success.svg)](README.md)
+[![Cycle: Fall 2027](https://img.shields.io/badge/Cycle-Fall%202027-success.svg)](#-28-所美国名校研究生语言豁免全量核验总表)
+[![Last Verified](https://img.shields.io/badge/Last%20Verified-2026--10--18-informational.svg)](data/waiver_list_us.csv)
+
+| 地区 | 状态 | 院校数 |
+|:---:|:---:|:---:|
+| 🇺🇸 美国 (US) · CS / ECE 硕士 | ✅ 已上线 · 持续更新 | 28 |
+| 🇬🇧 英国 (UK) | 🚧 计划中 | — |
+| 🇸🇬 新加坡 (Singapore) | 🚧 计划中 | — |
+
+[速览结论](#-核心结论速览-key-takeaways) · [全量总表](#-28-所美国名校研究生语言豁免全量核验总表) · [DET 策略](#-考试选择策略与-det-投机红宝书-duolingo-vs-toefl-vs-ielts) · [回信原文](docs/replies_us.md) · [邮件模板](#-官方咨询邮件模板-email-inquiry-template) · [参与贡献](CONTRIBUTING.md)
+
+</div>
+
+---
+
+## 📑 目录
+
+- [项目背景与开源初衷](#-项目背景与开源初衷)
+- [版本说明与更新计划](#️-版本说明与更新计划-roadmap)
+- [仓库结构](#-仓库结构)
+- [核心结论速览](#-核心结论速览-key-takeaways)
+- [28 所美国名校全量核验总表](#-28-所美国名校研究生语言豁免全量核验总表)
+- [考试选择策略与 DET 红宝书](#-考试选择策略与-det-投机红宝书-duolingo-vs-toefl-vs-ielts)
+- [招生办一手回复原文归档](#-招生办一手回复原文归档-verbatim-correspondence)
+- [官方咨询邮件模板](#-官方咨询邮件模板-email-inquiry-template)
+- [贡献与共建指南](#-贡献与共建指南-contributing)
+- [免责声明](#️-免责声明-disclaimer)
 
 ---
 
@@ -25,13 +56,33 @@
 
 > 📢 **当前为第一版（美国篇），本仓库会持续更新。**
 
-- **美国篇（持续补充）**：截至 2026-10-18 仍有 20 余所院校的咨询邮件尚未收到实质答复（见 [`replies.md`](replies.md)），收到回复或网申状态变化后会陆续补录，并随 Fall 2027 申请季推进更新实际录取结果；
+- **美国篇（持续补充）**：截至 2026-10-18 仍有 20 余所院校的咨询邮件尚未收到实质答复（见 [`docs/replies_us.md`](docs/replies_us.md)），收到回复或网申状态变化后会陆续补录，并随 Fall 2027 申请季推进更新实际录取结果；
 - **英国篇（UK，计划中）**：之后会加入英国院校研究生的 MOI 豁免政策与语言要求；
 - **新加坡篇（Singapore，计划中）**：之后会加入新加坡院校研究生的 MOI 豁免政策与语言要求。
 
-**数据文件说明**：[`data/waiver_list.csv`](data/waiver_list.csv) 为全地区总表（以 `region` 列区分地区，目前仅含 `US`）；[`data/waiver_list_us.csv`](data/waiver_list_us.csv) 为美国分表。英国、新加坡数据上线后会写入总表，并新增对应的分表。
-
 欢迎 Star / Watch 本仓库以获取更新通知。
+
+---
+
+## 📁 仓库结构
+
+```text
+ftsm-english-waiver-list/
+├── README.md                  # 总览：结论速览、全量总表、DET 策略、邮件模板
+├── CONTRIBUTING.md            # 贡献指南与脱敏规范
+├── LICENSE                    # CC BY 4.0
+├── data/
+│   ├── README.md              # 字段说明（数据字典）
+│   ├── waiver_list.csv        # 全地区总表（以 region 列区分，目前仅含 US）
+│   └── waiver_list_us.csv     # 美国分表
+├── docs/
+│   └── replies_us.md          # 美国招生办回信与网申实测原文归档
+├── prompts/
+│   └── verify_us.md           # 用 AI 核对美国院校官网政策的 Prompt
+└── .github/                   # Issue / PR 模板
+```
+
+英国、新加坡数据上线后会写入总表，并按同样的命名新增 `waiver_list_uk.csv`、`docs/replies_uk.md`、`prompts/verify_uk.md`（新加坡为 `_sg`）。
 
 ---
 
