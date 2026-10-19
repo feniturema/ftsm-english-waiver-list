@@ -64,6 +64,7 @@
   .card { background: var(--card); border: 1px solid var(--line); border-left: 8px solid var(--c); border-radius: 16px; padding: 18px 20px 16px; }
   .card .hd, .card .sub { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .card .name { white-space: nowrap; }
+  .card .cn { font-size: 21px; font-weight: 600; color: var(--ink-2); margin-left: 10px; }
   .card .sub { margin-top: 6px; min-height: 30px; }
   .card .name { font-size: 29px; font-weight: 800; line-height: 1.2; }
   .card .unit { font-size: 18px; color: var(--muted); }
@@ -180,65 +181,65 @@
 </div>
 
 <script>
-// 每所学校一行：[学校, 学院 · 项目, 一句话结论, 证据等级, 考分标签（null = 不需要显示）, 是否收 DET]
+// 每所学校一行：[学校, 中文名, 学院 · 项目, 一句话结论, 证据等级, 考分标签（null = 不需要显示）, 是否收 DET]
 const DATA = {
   good: {
     title: "可豁免", sub: "交 MOI 证明信或网申勾选即可，不用考语言", c: "var(--good)", bg: "var(--good-bg)",
     icon: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
     rows: [
-      ["UPenn", "SEAS · MSE CIS / DSAI / SE 等", "招生办邮件确认 MOI 信足够，随成绩单一起上传", "A", "免考", true],
-      ["Cornell Tech", "MEng CS", "招生办邮件确认 MOI 信可作豁免，随网申提交", "A", "免考", true],
-      ["Brown", "ScM CS / ECE", "网申选原校并注明英语为主要授课语言，自动免除", "A", "免考", true],
-      ["Stanford", "MS CS / EE", "近 10 年有 2 年以上全日制英语教育即可免交", "C", "免考", true],
-      ["Johns Hopkins", "WSE · MSE CS / MSSI / ECE", "工学院认全英学位，网申选 MOI 通道，还免申请费", "B/C", "免考", true],
-      ["Emory", "Laney · MS CS", "英语授课院校毕业可直接豁免", "C", "免考", true],
-      ["Notre Dame", "MS CSE / ECE", "认可本科院校出具的 MOI 证明信", "C", "免考", true],
+      ["UPenn", "宾夕法尼亚大学", "SEAS · MSE CIS / DSAI / SE 等", "招生办邮件确认 MOI 信足够，随成绩单一起上传", "A", "免考", true],
+      ["Cornell Tech", "康奈尔科技校区", "MEng CS", "招生办邮件确认 MOI 信可作豁免，随网申提交", "A", "免考", true],
+      ["Brown", "布朗大学", "ScM CS / ECE", "网申选原校并注明英语为主要授课语言，自动免除", "A", "免考", true],
+      ["Stanford", "斯坦福大学", "MS CS / EE", "近 10 年有 2 年以上全日制英语教育即可免交", "C", "免考", true],
+      ["JHU", "约翰霍普金斯大学", "WSE · MSE CS / MSSI / ECE", "工学院认全英学位，网申选 MOI 通道，还免申请费", "B/C", "免考", true],
+      ["Emory", "埃默里大学", "Laney · MS CS", "英语授课院校毕业可直接豁免", "C", "免考", true],
+      ["Notre Dame", "圣母大学", "MS CSE / ECE", "认可本科院校出具的 MOI 证明信", "C", "免考", true],
     ],
   },
   warn: {
     title: "看审核", sub: "可以提交 MOI 申请，结果由招生委员会裁定", c: "var(--warn)", bg: "var(--warn-bg)",
     icon: '<path d="M12 7v6M12 17.5v.01"/>',
     rows: [
-      ["UChicago", "MPCS · MS CS", "成绩自报选填，Checklist 无语言缺件项", "B", null, false],
-      ["Boston Univ", "MET · MS CS", "MOI 已上传并显示收到，但审理时保留要分权", "B", "DET 125", true],
-      ["WashU", "McKelvey · MS CS / ECE", "须交完整申请后由委员会裁定，不接受预审", "A", "DET 125", true],
-      ["Georgia Tech", "MSCS / MS ECE", "新页面接受学位 MOI，但 FAQ 仍写 sole", "C", null, false],
-      ["Yale", "MS ECE / CS", "以英语为主要授课语言且读满 3 年可免", "B/C", null, false],
-      ["Northwestern", "McCormick · MS CS / ECE", "网申内可申请豁免，随录取一起审核", "C", null, false],
-      ["Dartmouth", "Guarini · MS CS", "要求 sole / primary 英语院校，可网申申请", "C", null, false],
-      ["UNC Chapel Hill", "MS CS", "要求整校 sole 英语授课，建议直接交分", "C", null, false],
+      ["UChicago", "芝加哥大学", "MPCS · MS CS", "成绩自报选填，Checklist 无语言缺件项", "B", null, false],
+      ["Boston Univ", "波士顿大学", "MET · MS CS", "MOI 已上传并显示收到，但审理时保留要分权", "B", "DET 125", true],
+      ["WashU", "圣路易斯华盛顿大学", "McKelvey · MS CS / ECE", "须交完整申请后由委员会裁定，不接受预审", "A", "DET 125", true],
+      ["Georgia Tech", "佐治亚理工学院", "MSCS / MS ECE", "新页面接受学位 MOI，但 FAQ 仍写 sole", "C", null, false],
+      ["Yale", "耶鲁大学", "MS ECE / CS", "以英语为主要授课语言且读满 3 年可免", "B/C", null, false],
+      ["Northwestern", "西北大学", "McCormick · MS CS / ECE", "网申内可申请豁免，随录取一起审核", "C", null, false],
+      ["Dartmouth", "达特茅斯学院", "Guarini · MS CS", "要求 sole / primary 英语院校，可网申申请", "C", null, false],
+      ["UNC Chapel Hill", "北卡教堂山", "MS CS", "要求整校 sole 英语授课，建议直接交分", "C", null, false],
     ],
   },
   crit: {
     title: "需交分", sub: "国家白名单、WHED 数据库或明确拒免，必须考语言", c: "var(--crit)", bg: "var(--crit-bg)",
     icon: '<path d="M7 7l10 10M17 7L7 17"/>',
     rows: [
-      ["NYU Tandon", "MS CS", "网申豁免申请已被正式拒绝", "A", "DET 130", true],
-      ["Duke", "Pratt MEng ECE / MS ECE", "要求所在国以英语为主，招生办推荐考 DET", "A", "DET 125", true],
-      ["Columbia", "SEAS / GSAS / SPS", "国家白名单，网申明确写明东南亚须交分", "B/C", "DET 130–135", true],
-      ["UIUC", "Grainger · MCS", "30 国白名单，不含马来西亚", "B/C", "DET 135", true],
-      ["UC Berkeley", "MEng EECS", "国家表明确标注马来西亚须交 TOEFL / IELTS", "B/C", "托福 5.0", false],
-      ["UC San Diego", "Jacobs · MS CS / ECE", "只认 WHED，UKM 登记为马来语 + 英语", "A/C", "DET 120", true],
-      ["UCLA", "Samueli · MS CS / ECE", "WHED 须仅列英语，双语大学不满足", "C", "托福 4.5", false],
-      ["USC", "Viterbi · MS CS", "非英语国家的英语授课项目不豁免", "C", "托福 4.5", false],
-      ["UMich", "CoE · MS CSE / ECE", "要求整校 exclusive 英语授课", "C", "托福 84", false],
-      ["Cornell Ithaca", "MEng CS / ECE", "须交分；CS 托福口语 ≥ 5.5，建议考雅思", "C", "雅思 7.0", false],
-      ["Harvard", "SEAS / GSAS", "只认机构 primary 语言为英语", "C", "托福 5.0", false],
-      ["Vanderbilt", "MS CS / MEng", "不受理双语大学的豁免申请", "C", "DET 130", true],
-      ["Rice", "MCS / ECE", "要求大学官方语言为英语", "C", "DET 115", true],
+      ["NYU Tandon", "纽约大学", "MS CS", "网申豁免申请已被正式拒绝", "A", "DET 130", true],
+      ["Duke", "杜克大学", "Pratt MEng ECE / MS ECE", "要求所在国以英语为主，招生办推荐考 DET", "A", "DET 125", true],
+      ["Columbia", "哥伦比亚大学", "SEAS / GSAS / SPS", "国家白名单，网申明确写明东南亚须交分", "B/C", "DET 130–135", true],
+      ["UIUC", "伊利诺伊大学香槟分校", "Grainger · MCS", "30 国白名单，不含马来西亚", "B/C", "DET 135", true],
+      ["UC Berkeley", "加州大学伯克利", "MEng EECS", "国家表明确标注马来西亚须交 TOEFL / IELTS", "B/C", "托福 5.0", false],
+      ["UCSD", "加州大学圣地亚哥分校", "Jacobs · MS CS / ECE", "只认 WHED，UKM 登记为马来语 + 英语", "A/C", "DET 120", true],
+      ["UCLA", "加州大学洛杉矶分校", "Samueli · MS CS / ECE", "WHED 须仅列英语，双语大学不满足", "C", "托福 4.5", false],
+      ["USC", "南加州大学", "Viterbi · MS CS", "非英语国家的英语授课项目不豁免", "C", "托福 4.5", false],
+      ["UMich", "密歇根大学", "CoE · MS CSE / ECE", "要求整校 exclusive 英语授课", "C", "托福 84", false],
+      ["Cornell Ithaca", "康奈尔大学", "MEng CS / ECE", "须交分；CS 托福口语 ≥ 5.5，建议考雅思", "C", "雅思 7.0", false],
+      ["Harvard", "哈佛大学", "SEAS / GSAS", "只认机构 primary 语言为英语", "C", "托福 5.0", false],
+      ["Vanderbilt", "范德堡大学", "MS CS / MEng", "不受理双语大学的豁免申请", "C", "DET 130", true],
+      ["Rice", "莱斯大学", "MCS / ECE", "要求大学官方语言为英语", "C", "DET 115", true],
     ],
   },
 };
 
 const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 for (const [id, g] of Object.entries(DATA)) {
-  const cards = g.rows.map(([name, unit, why, lvl, score, det]) => {
+  const cards = g.rows.map(([name, cn, unit, why, lvl, score, det]) => {
     const chips = [];
     if (score && score.startsWith("DET")) chips.push(`<span class="chip det">${score}</span>`);
     else if (score && score !== "免考") chips.push(`<span class="chip">${score}</span>`);
     if (!det) chips.push(`<span class="chip nodet">不收 DET</span>`);
     return `<div class="card" style="--c:${g.c}">
-      <div class="hd"><div class="name">${esc(name)}</div><span class="chip lvl">${lvl}</span></div>
+      <div class="hd"><div class="name">${esc(name)}<span class="cn">${esc(cn)}</span></div><span class="chip lvl">${lvl}</span></div>
       <div class="sub"><div class="unit">${esc(unit)}</div><div class="chips">${chips.join("")}</div></div>
       <div class="why">${esc(why)}</div></div>`;
   }).join("");
